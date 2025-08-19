@@ -1,12 +1,12 @@
 # airthmethic operator #
-# a=10
-# b=20
-# print(a+b)
-# print(a-b)
-# print(a*b)
-# print(a/b)
-# print(5**3)
-# print(3//10)
+a=10
+b=20
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+print(5**3)
+print(3//10)
 
 # assignment operator #
 a=10

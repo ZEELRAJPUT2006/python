@@ -8,3 +8,4 @@ for i in range(0,n):
     print(c)
     a = b
     b = c
+    

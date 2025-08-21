@@ -1,8 +1,16 @@
-def factorial(num):
-    if num <= 1:
-        return 1
-    else:
-        return num * factorial(num=1)
-    
-number = 5
-print("factorial of",number,"is",factorial(number))
+# n = int(input("enter the number"))
+n = 5
+fact = 1
+for i in range(1,5):
+    fact *= i
+    print(fact)
+
+
+# n = 5
+# fact = 1
+# i = 1
+
+# while i<= 5:
+#     fact *= i
+#     i += 1
+#     print(fact)

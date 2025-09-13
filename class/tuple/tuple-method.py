@@ -25,4 +25,4 @@ l1=[10]
 # (a,b,c,*d)=1
 # print(d)
 
-print(t1*2)
+# print(t1*2)

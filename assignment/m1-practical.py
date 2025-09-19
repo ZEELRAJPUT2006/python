@@ -143,3 +143,108 @@
 
 # for i in range(1,6):
 #     print("*"*i)
+
+# Practical Example: 1) Write a Python program to print "Hello" using a string
+# def h1():
+#     print("hello")
+# h1()
+
+# Practical Example: 2) Write a Python program to allocate a string to a variable and print it.
+# s = "hello world"
+# print(s)
+
+# • Practical Example: 3) Write a Python program to print a string using triple quotes.
+# s = '''hello my world'''
+# print(s)
+
+# Practical Example: 4) Write a Python program to access the first character of a string using
+# index value.
+# s = "hello world"
+# print(s[:1])
+
+# Practical Example: 5) Write a Python program to access the string from the second position
+# onwards using slicing
+# s = "hello world"
+# print(s[1:])
+
+# Practical Example: 6) Write a Python program to access a string up to the fifth character
+# s = "hello world from jhon"
+# print(s[0:6])
+
+# Practical Example: 7) Write a Python program to print the substring between index values 1
+# and 4.
+# s = "hello world"
+# s1 =s[1:4]
+# print(s1)
+
+
+# Practical Example: 8) Write a Python program to print a string from the last character.
+# s = "hello world"
+# print(s[-1:])
+
+# Practical Example: 9) Write a Python program to print every alternate character from the
+# string starting from index 1.
+
+# Practical Example: 1) Write a Python program to skip 'banana' in a list using the continue
+# statement. List1 = ['apple', 'banana', 'mango']
+
+# list1 = ['apple', 'banana', 'mango']
+# for i in list1:
+#     if i == 'banana':
+#         continue
+#     print(i)
+
+# Practical Example: 2) Write a Python program to stop the loop once 'banana' is found using
+# the break statement.
+# for i in list1:
+#     if i == 'banana':
+#        break
+#     print(i)
+
+# Write a Python program to demonstrate string slicing
+# l = "hello world from python and jhon"
+# print(l[0:6])
+# print(l[1:4])
+# print(l[5:])
+# print(l[:5])
+# print(l[-5:])
+# print(l[-5:-7])
+
+# • Write a Python program that manipulates and prints strings using various string methods.
+str1 = "hello everyone welcome to the c.b.patel campus from us"
+# print(len(str1))
+# print(str1.casefold())
+# print(str1.upper())
+# print(str1.lower())
+# print(str1.capitalize())
+# print(str1.title())
+# print(str1.strip())
+# print(str1.replace('c','D',31))
+# print(str1.find("everyone"))
+# print(str1.startswith("h"))
+# print(str1.endswith("s"))
+# print(str1.split(" ",3))
+# print("good morning".join("str1"))
+# print(str1.isalnum())
+# print(str1.isalpha())
+# print(str1.isascii())
+# print(str1.isdecimal())
+# print(str1.isdigit())
+# print(str1.zfill(10))
+# print("str1".center(21,"*"))
+
+# • Write a Python program to apply the map() function to square a list of numbers.
+l = [10,20,30,40]
+# def square(a):
+#     return a*a
+# s = map(lambda a: a*a,l)
+# print(list(s))
+
+# • Write a Python program that uses reduce() to find the product of a list of numbers.
+# from functools import reduce
+# s = reduce(lambda a,b:a*b,l)
+# print(s) 
+
+# • Write a Python program that filters out even numbers using the filter() function.
+# s = filter(lambda a: a%2==0 ,l)
+# print(list(s))

@@ -32,8 +32,12 @@
 #     print(id,name,email)
 # person(10,email="tisha@gmail.com")
 
-a = lambda a,b : a+b
-print(a(10,20))
+# a = lambda a,b : a+b
+# print(a(10,20))
 
-c = lambda a : a*a
-print(c(10))
+# c = lambda a : a*a
+# print(c(10))
+
+l = ["tisha","devanshi","zeel"]
+# k = map(lambda a: "hello ,"+a,l)
+# print(list(k))

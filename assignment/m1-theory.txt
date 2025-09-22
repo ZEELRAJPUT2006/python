@@ -389,6 +389,7 @@ Ans. 1. arithmetic operators:
 
               * * *  Conditional Statements * * *
 Q.1 Introduction to conditionalstatements: if, else, elif.
+===========================================================================================
 Ans.Introduction to Conditional Statements in Python
     = Conditional statements are used to make decisions in a program based on conditions (True/False).
     = They allow a program to execute different blocks of code depending on the situation.
@@ -426,6 +427,7 @@ Ans.Introduction to Conditional Statements in Python
                 print("Grade: C")
 
 Q.2 Nested if-else conditions.
+================================================================================================
 Ans. A nested if means an if statement inside another if or else block.
      It is used when decisions depend on multiple levels of conditions
 
@@ -448,6 +450,491 @@ Ans. A nested if means an if statement inside another if or else block.
                         print("You must be a citizen to vote.")
              else:
                     print("You are under 18, not eligible to vote.")
+
+
+                           * * * Looping * * *
+Q.1 Introduction to for and while loops. 
+=================================================================================================
+Ans. 
+1. For loop
+= The for loop is used to iterate (repeat) over a sequence like a list, tuple, string, or range.
+= It executes a block of code for each element in the sequence.
+= It is generally used when the number of iterations is known.
+
+2. While loop
+= The while loop is used to repeat a block of code as long as a condition is true.
+= It is generally used when the number of iterations is not known in advance.
+= If the condition never becomes False, the loop will run infinitely.
+
+Q.2 How loops work in Python.
+==============================================================================================
+= Loops are used to execute a block of code repeatedly until a condition is met. Python mainly supports two types of loops: for loop and while loop.
+1. for loop
+= A for loop is used to iterate (go through) each element of a sequence (list, tuple, string, dictionary, range, etc.).
+= The loop automatically picks the next item from the sequence and assigns it to a variable.
+= It continues until there are no items left in the sequence.
+
+2. while loop
+= A while loop keeps running as long as a condition is True.
+= Each time the loop body is executed, the condition is checked again.
+= If the condition becomes False, the loop stops.
+
+3. Loop Control Statements
+Python provides special statements to control loop execution:
+= break → Exits the loop immediately.
+= continue → Skips the current iteration and moves to the next one.
+= pass → Does nothing, just a placeholder.
+
+Q.3 Using loops with collections (lists, tuples, etc.). 
+===================================================================================================
+Ans. Collections are data structures that store multiple items. The most common collections are list, tuple, set, dictionary, and string. Loops allow us to iterate through each element of these collections.
+
+1. Loop with a list:
+= A list is an ordered collection of items.
+
+=> Example:
+     l = ["python","java","RDBMS"]
+     for i in l:
+          print(i)
+
+2. loop with a tuple:
+= Tuples are similar to lists but immutable (cannot be changed).
+
+=> Example:
+     t = (10,20,30,40)
+     for i in t:
+          print(i)
+
+3. loop with a set:
+= A set is an unordered collection (no duplicates).
+
+=> Example:
+     s = {"red","orange","green"}
+     for i in s:
+         print(s)
+
+4. loop with a dictionary
+= Dictionaries store key-value pairs. You can loop through keys, values, or both.
+
+=> Example
+     d = {"name":"jhon","age":25}
+     for i,j in d.items():
+             print(i,j)
+
+                   * * * Generators and Iterators * * *
+Q.1 Understanding how generators work in Python. 
+=================================================================================================
+Ans.
+1. What is a Generator?
+= A generator is a special type of function that produces values one at a time instead of returning them all at once.
+= Unlike normal functions that use return, generators use the yield keyword.
+= Each time the generator is called, execution pauses at yield and resumes from there on the next call.
+
+2. Why Use Generators?
+= Generators are memory efficient because they don’t store all values in memory, they generate values when needed.
+= Useful for working with large datasets, infinite sequences, or streams of data.
+
+Q.2 Difference between yield and return. 
+=================================================================================================
+Ans.
+| Feature              |  return                                                    | yield                                                                              |
+| -------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Purpose**          | Ends a function and **returns a single value**.            | Produces a value and **pauses the function**, allowing it to resume later.           |
+| **Function Type**    | Used in **normal functions**.                              | Used in **generator functions**.                                                     |
+| **Number of Values** | Function can return **only once**.                         | Function can yield **multiple times**.                                               |
+| **Execution Flow**   | After `return`, function **terminates completely**.        | After `yield`, function **pauses** and resumes from the same point on the next call. |
+| **Memory Usage**     | Returns the whole result at once, may use a lot of memory. | Generates values **one at a time**, very memory-efficient.                           |
+| **Usage**            | Good for final results like `sum`, `max`, etc.             | Good for sequences, streams, or large datasets.                                      |
+
+Q.3 Understanding iterators and creating custom iterators. 
+=================================================================================================
+Ans.An iterator is an object that allows you to iterate (loop) through a sequence of elements one by one.
+   =  It implements two special methods:
+
+   1.  __iter__() → returns the iterator object itself.
+
+   2.  __next__() → returns the next item in the sequence.
+
+   3.  When there are no more items, __next__() raises StopIteration
+
+   4. Every collection (list, tuple, string, dict, set) in Python can be turned into an iterator using the iter() function.
+
+                          * * * Function and methods * * *
+Q.1 Defining and calling functions in Python. 
+================================================================================================
+Ans. 
+= A function is a block of reusable code that performs a specific task.   
+= Functions help in reducing code repetition and make programs more organized.
+= In Python, you define a function using the def keyword.
+= To call (use) a function, just write its name followed by parentheses (). If it requires parameters, pass them inside.
+
+=> Example:
+   def display():
+       print("hello world")
+   display()
+
+Q.2 Function arguments (positional, keyword, default).
+===============================================================================================
+Ans. 
+1. Positional Arguments
+= Values are passed in the same order as the parameters in the function definition.
+= The position matters.
+
+2. Keyword Arguments
+= You specify the parameter name when passing the value.
+= Order does not matter because arguments are matched by name.
+
+3. Default Arguments
+= You can assign a default value to a parameter in the function definition.
+= If the caller doesn’t provide a value, the default is used.
+
+Q.3 Scope of variables in Python. 
+===============================================================================================
+Ans.
+= Scope defines the region of a program where a variable is recognized.
+= Variables can have local or global scope.
+
+-----> Types of scoope
+1.Local Scope
+= A variable created inside a function belongs to the local scope.
+= It is accessible only within that function.
+
+2.Global Scope
+= A variable created outside any function is global.
+= It can be accessed from anywhere in the program.
+
+Q.4 Built-in methods for strings, lists, etc.
+==================================================================================================
+Ans.
+1.String Methods (str)
+= Strings are immutable, but you can perform many operations:
+----> string methods:
+
+                s.lower() → " hello world " (converts to lowercase)
+
+                s.upper() → " HELLO WORLD " (converts to uppercase)
+
+                s.strip() → "Hello World" (removes spaces)
+
+                s.replace("World", "Python") → " Hello Python "
+
+                s.split() → ["Hello", "World"] (splits into list)
+
+                s.join(['Hi', 'Python']) → "Hi Python" (joins with space/string)
+
+                s.find("lo") → 3 (index of substring)
+
+                s.startswith("He") → True
+
+                s.endswith("ld") → True
+
+                s.isalpha() → False (only alphabets?)
+
+                s.isdigit() → False (only digits?)
+
+2. List Methods (list)
+= Lists are mutable → you can modify them
+-----> list Method
+                l.append(5) → [1,2,3,4,5]
+
+                l.insert(2, 10) → [1,2,10,3,4,5]
+
+                l.extend([6, 7]) → [1,2,10,3,4,5,6,7]
+
+                l.remove(10) → [1,2,3,4,5,6,7]
+
+                l.pop() → removes last element (or index)
+
+                l.sort() → sorts ascending
+
+                l.reverse() → reverses the list
+
+                l.index(3) → 2 (first index of element)
+
+                l.count(2) → 1 (occurrence count)
+
+                l.clear() → []
+
+3. Tuple Methods (tuple)
+= Tuples are immutable, so only a few methods exist:
+------> tuple Method
+                count() ->	Returns the number of times a specified value occurs in a tuple
+                index() ->  Searches the tuple for a specified value and returns the position of where it was found
+
+4. Set Methods (set)
+= Sets are unordered and unique.
+------> set method
+                    s.add(4) → {1,2,3,4}
+
+                    s.update([5, 6]) → {1,2,3,4,5,6}
+
+                    s.remove(2) → removes element (error if not found)
+
+                    s.discard(10) → removes if present (no error)
+
+                    s.pop() → removes random element
+
+                    s.clear() → {}
+
+                    s.union({7,8}) → {1,2,3,4,5,6,7,8}
+
+                    s.intersection({2,3,9}) → {2,3}
+
+                    s.difference({3,4}) → {1,2,5,6}
+
+5. Dictionary Methods (dict)
+= Dictionaries store key-value pairs.
+------> dictionary method
+                    d.keys() → ['a','b']
+
+                    d.values() → [1,2]
+
+                    d.items() → [('a',1), ('b',2)]
+
+                    d.get("a") → 1
+
+                    d.update({"c":3}) → {'a':1,'b':2,'c':3}
+
+                    d.pop("b") → removes key "b"
+
+                    d.popitem() → removes last inserted key-value pair
+
+                    d.clear() → {}
+
+                    d.setdefault("d", 10) → inserts if key not found
+
+                      * * * Control Statements (Break, Continue, Pass) * * *
+Q.1 Understanding the role of break, continue, and pass in Python loops.
+==================================================================================================
+Ans. 
+1. break
+= Terminates the loop immediately, regardless of the loop condition.
+= Used when you want to exit a loop early.
+
+=> Example:
+          for i in range(5):
+              if i==3:
+                 break
+            print(i)
+
+2. continue
+= Skips the current iteration and moves to the next iteration of the loop.
+= Useful when you want to skip certain values. 
+
+=> Example:
+         for i in range(6):
+             if i==2:
+                continue
+             print(i)
+
+3. pass
+= Does nothing; it’s a placeholder.
+= Useful when syntax requires a statement but you don’t want to execute anything yet.
+
+=> Example:
+        if a>b:
+           print("a is grater")
+        else:
+           pass
+
+                      * * *  String Manipulation * * *
+Q.1 Understanding how to access and manipulate strings.
+===========================================================================================
+Ans.
+A string in Python is a sequence of characters enclosed in quotes (' ' or " "). Strings are immutable, which means you cannot change them in place, but you can create new strings by manipulating them.
+1.Accessing Characters
+= Use indexing to access individual characters. Index starts from 0.
+
+2. Slicing Strings
+= Extract a part of the string using slicing: s[start:end:step]
+
+3. String Operations
+= Concatenation (+) → join strings
+
+4. String Formatting
+= Using f-strings to embed Variables
+
+Q.2 Basic operations: concatenation, repetition, string methods (upper(), lower(), etc.). 
+===================================================================================================
+Ans. 
+1. concatenation
+= it is used to join two strings
+=> Example:
+str = "hello"
+str1 = "world"
+str3 = str + str1
+print(str3)
+
+2. repetition
+= Repeat a string multiple times using the * operator.
+=> Example:
+str = "hii"
+print(str * 3)
+
+3. string method
+=  s.lower() → " hello world " (converts to lowercase)
+
+   s.upper() → " HELLO WORLD " (converts to uppercase)
+
+   s.strip() → "Hello World" (removes spaces)
+
+   s.replace("World", "Python") → " Hello Python "
+
+   s.split() → ["Hello", "World"] (splits into list)
+
+   s.join(['Hi', 'Python']) → "Hi Python" (joins with space/string)
+
+   s.find("lo") → 3 (index of substring)
+
+   s.startswith("He") → True
+
+   s.endswith("ld") → True
+
+   s.isalpha() → False (only alphabets?)
+
+   s.isdigit() → False (only digits?)
+
+Q.3 String slicing. 
+=============================================================================
+Ans.String slicing allows you to extract a portion of a string using indices.
+
+                    Syntax:
+                    string[start : end : step]
+
+start → starting index (inclusive)
+end → ending index (exclusive)
+step → how many steps to move forward (optional, default = 1)
+
+1. Basic Slicing
+= Ans
+=> Example
+        s = "Python"
+        print(s[0:4])   
+        print(s[2:])    
+        print(s[:4])    
+        print(s[:]) 
+
+2. Using Negative Indices
+= Negative indices count from the end of the string (-1 is last character).
+=> Example
+        s = "Python"
+        print(s[-1])    
+        print(s[-4:-1])
+        print(s[-3:])  
+
+            *  * * Advanced Python (map(), reduce(), filter(), Closures and Decorators) * * *
+Q.1 How functional programming works in Python. 
+================================================================================================
+Ans. Functional programming (FP) is a programming paradigm where you write programs using functions and avoid changing state or mutable data. Python supports functional programming along with other paradigms.
+1. Functions can be stored in variables, passed, or returned.
+                def square(x):
+                    return x*x
+
+                f = square      
+                print(f(5))   
+
+2. Lambda functions
+= Small one-line functions using lambda keyword.
+= Useful in functional programming.
+
+                square = lambda x: x*x
+                print(square(6)) 
+
+3. map()
+= Applies a function to all items of an iterable.
+
+                nums = [1, 2, 3, 4]
+                squared = list(map(lambda x: x*x, nums))
+                print(squared)   
+
+4. filter()
+= Filters elements based on a condition.
+
+                nums = [1, 2, 3, 4, 5]
+                even = list(filter(lambda x: x%2==0, nums))
+                print(even)  
+
+5. reduce()
+= Applies a function cumulatively to reduce iterable to a single value.
+= from functools import reduce
+
+                nums = [1, 2, 3, 4]
+                sum_all = reduce(lambda a, b: a+b, nums)
+                print(sum_all)   
+
+Q.2 Using map(), reduce(), and filter() functions for processing data.
+=====================================================================================
+Ans.
+1. map()
+= Purpose: Apply a function to every item in an iterable (like list, tuple).
+= Returns a map object, usually converted to a list.
+
+        Syntax:
+        map(function, iterable)
+
+=> Example:
+        nums = [1, 2, 3, 4]
+        squared = list(map(lambda x: x*x, nums))
+        print(squared)
+
+2. filter()
+= Purpose: Select items from an iterable based on a condition.
+= Returns a filter object, usually converted to a list.
+
+        Syntax:
+        filter(function, iterable)
+
+=> Example:
+        nums = [1, 2, 3, 4, 5]
+        even = list(filter(lambda x: x % 2 == 0, nums))
+        print(even)
+
+3. reduce() (from functools module)
+= Purpose: Apply a function cumulatively to reduce a sequence to a single value.
+= Example: sum, product, or any cumulative operation.
+
+        Syntax:
+        from functools import reduce
+        reduce(function, iterable)
+
+=> Example:
+        from functools import reduce
+
+        nums = [1, 2, 3, 4]
+        sum_all = reduce(lambda a, b: a + b, nums)
+        product = reduce(lambda a, b: a * b, nums)
+
+        print("Sum:", sum_all)
+        print("Product:", product)
+
+Q.3 Introduction to closures and decorators.
+Ans.
+1. Closure
+= A closure is a function object that remembers values from its enclosing scope, even after that scope has finished execution.
+= Essentially, a closure “encloses” the environment where it was created.
+
+2. Decorators
+= A decorator is a function that takes another function as input, adds functionality, and returns it.
+= Decorators allow code reuse and modifying behavior without changing the original function.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

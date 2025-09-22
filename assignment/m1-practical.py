@@ -133,8 +133,6 @@
 #     print("string is not in a list")
 
 # Practical Example 4: Print this pattern using nested for loop:
-# markdown
-# Copy code
 # *
 # **
 # ***
@@ -248,3 +246,80 @@ l = [10,20,30,40]
 # • Write a Python program that filters out even numbers using the filter() function.
 # s = filter(lambda a: a%2==0 ,l)
 # print(list(s))
+
+# Write a generator function that generates the first 10 even numbers. 
+# • Write a Python program that uses a custom iterator to iterate over a list of integers
+# l1 = [10,20,30,40]
+# k = iter(l1)
+# print(next(k))
+# print(next(k))
+# print(next(k))
+# print(next(k))
+# print(next(k))
+
+
+# def even():
+#     n = 1
+#     count = 0
+#     while count < 10:
+#         yield n * 2
+#         n += 1
+#         count += 1
+
+# for num in even():
+#     print(num)
+
+# Create a mini-project where students combine conditional statements, loops, and functions 
+# to create a basic Python application, such as a simple calculator or a grade management 
+# system. 
+
+# print("1. for addition")
+# print("2. for substraction")
+# print("3. for multiplication")
+# print("4. for division")
+
+# def add(a,b):
+#     return a+b
+
+# def sub(a,b):
+#       return a-b
+
+# def multi(a,b):
+#       return a*b
+
+# def div(a,b):
+#       return(a/b)
+
+# ch = int(input("enter the choice"))
+# a = int(input("enter the number 1"))
+# b = int(input("enter the number 2"))
+
+# if ch == 1:
+#      print(f"addition of two number are add{(a+b)}")
+
+# elif ch == 2:
+#     print(f"substraction of two numbers are sub{(a-b)}")
+
+# elif ch == 3:
+#     print(f"multiplication of two numbers are multi{(a*b)}")
+
+# elif ch == 4:
+#     print(f"division of two number are div{(a/b)}")
+
+# else:
+#     print("invalid choice")
+
+# =============== grade =================
+marks = int(input("enter the marks"))
+if marks >= 91 and marks <= 100:
+        print("grade A")
+elif marks >= 71 and marks <= 90:
+        print("grade B")
+elif marks >= 51 and marks <= 70:
+      print("grade C")
+elif marks >= 35 and marks <= 50:
+      print("grade D")
+elif marks >= 0 and marks <= 34:
+      print("fail")
+else:
+      print("invalid input, marks is out of range(0-100)")

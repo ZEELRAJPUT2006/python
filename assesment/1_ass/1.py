@@ -29,9 +29,11 @@ while ans != 'n':
                 print("Invalid choice")
 
             ans1 = input("Do you want to continue menu? (y/n): ")
+            print("*******************************************************")
 
     elif choice == 2:
             bookreturn()
 
 
     ans = input("Do you want to continue main menu? (y/n): ")
+    print("***********************************************************************")

@@ -17,7 +17,7 @@ def book_rental_details():
 
 
 def view():
-    print(""" ****** view details ****** """)
+    # print(""" ****** view details ****** """)
     if not bookdata:
         print("No records found.")
     else:

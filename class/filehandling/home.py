@@ -45,6 +45,7 @@
 #     data = f.read()
 #     print(data)
 
-with open("images.png",'rb') as f:
-    data = f.read()
-    print(data)
+# with open("images.png",'rb') as f:
+#     data = f.read()
+#     print(data)
+

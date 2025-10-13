@@ -1,0 +1,135 @@
+q.1 explain shell types in Linux
+= bourn shell :- oldest, simple, support basic script, linited iteractive features
+= bash shell :- common, command history, tab completation, advance scripting
+= c shell :- c for syntax, history mechanism, job control
+= korn shell :- combine of bourn shell and c shell, faster, support airthmethic operation
+= z shell :- superset of bash shell, auto correction, thems & pluging
+= fish shell :- user friendly, auto-suggestion, syntax handling
+
+q.2 file types in Linux
+= regular file :- store normal data
+= directory :- contain file and other directory
+= character device :- device file that transfer the data character by character
+= block device :- device transfer in a block
+= socket :- use intel process communication
+= named pipe :- one way communication between process
+= symbolic link :- shortcut to point another directory
+
+q.3 directory structure and FHS
+= Linux support hierarchical directory structure starting from the root, filesystem hierarchical standard define the purpose of each directory so that all Linux system stay consist
+= / :- root of the filesystem
+= /bin :- basic user command
+= /sbin :- system administrator command
+= /home :- user home directory
+= /root :- system home directory
+= /dev :- device directory
+= /var :- variable data like logs
+= /etc :- configuration file
+= /tmp :- temporary file
+= /usr :- user information, documentation, and library
+= /boot :- boot loader file and kernel
+
+q.4 process command
+= process command are command used in operating system to manage and execution of process
+= ps :- display the current running process
+= fg :- bring job of background in foreground
+= bg :- resume job in background
+= kill :- terminate the process with their pid
+= sleep :- stop the execution for some time
+
+q.5 at,batch,crontab command
+= at :- run a job once at specific time
+= batch :- similar to at, run when system load is low
+= crontab :- used to schedule a job rapidally at interval time
+
+q.6 explain $(())
+= $() :- command substruction :- command execute and return as an output
+  ex = $(date)
+= $(()) :- support all arithmetic operation
+  ex = $((5+3))
+
+q.7 regular expression
+= regular expression are special pattern to match, insert and manipulate the text file and input stream
+= regular expression used with Linux commands like grep, sed, process
+= there are two types
+ 1. basic regular expression
+ = used with grep command , follow ., *, ^, $, []
+ 2. extended regular expression
+ = used with egrep command , follow ?, +, (), |
+
+= options with regular expression:
+1 . :- match one character 
+2 * :- match one or more occurrence
+3 ^word :- line start with word
+4 word$ :- line end with word
+5 [a,b,c] :- match a,b and c
+6 [0-9] :- match any digit
+
+q.8 grep command:
+= grep command is stands for global regular expression print
+= grep command is used to search text pattern in input or text file
+= it support regular expression and match the pattern
+= options with grep:
+1. -i :- ignore case
+2. -v :- do not contain matching pattern
+3. -c :- count the number of line
+4. -n :-display the number of matching line
+5. l :- display the filename which is matched
+
+q.9 egrep
+= egrep is stands for extended global regular expression
+= works like grep -E
+= it support the . ,* ,^, $,[]
+= example egrep "cat|dog" animal.txt
+
+q.10 fgrep
+= fgrep is stands for fixed global regular expression print
+= works like a grep -F
+= it treats special character as normal text
+= fast to fixed search text
+= ex fgrep "a*b" f1
+
+q.11 sed command
+ = sed command is a command tool to replace,find,insert,append,print and delete the charcter or line without opening it
+ = options with sed
+ 1. replace :- replace is used to replace a character
+    ex . sed 's/unix/Linux/' f1
+         sed 's/unix/Linux/g' f1
+
+ 2. print :- it is used to print the line
+    ex . sed '3p' f1
+         sed '3,7p' f1
+
+ 3. delete :- it is used to delete the line
+    ex . sed '3d' f1
+
+ 4. insert :- it's insert a line before the given number
+    ex . sed '3i hello' f1
+
+ 5. append :- it insert a line after the given number
+    ex . sed '3a new' f1
+
+q.12 explain Linux components
+ = hardware :- physical components like a cpu, memory, disk, I/O device
+ = kernel :- core of Linux, manage hardware, memory, block and I/O device
+ = shell :- interpreter communication, let's user interact with kernel
+ = GNU utility :- support basic command and tool for file and directory
+ = application :- user interact like a browser, media player,servers
+
+q.13 test statement:
+ = test command is used to check condition such as a numeric, file permission, string comparison etc
+ = it return 0 if file is satisfied otherwise it return 1
+ = number comparison :- gt, ge, lt, le, eq, nq
+ = string comparison :- str1=str2, str1==str2, -n str1=str2, -z str1=str2, str1!=str2
+ = file permission :- r, w, e, s, d, l 
+
+q.14 arithmetic operation 
+= arithmethic operation can be done using expr and $(())
+1.use of expr
+= oldest version to use arithmetic operation
+= require space between operator and operand
+= ex. echo $ 5 + 3
+2.use of $(())
+= moden and easy
+= support all arithmetic operations
+= ex. echo $((5+3))

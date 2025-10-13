@@ -1,0 +1,137 @@
+q.1 mkdir
+= m,p,v = make directory
+  m = set permission mode
+  p = create subdirectory tree under the current directory
+  v = after create the directory it display the name of directory
+
+q.2 pwd
+= present working directory = their are no argument
+
+q.3 cd
+= change directoty = cd; cd/ cd.. cd../.. cd~
+  cd; = change user home directory
+  cd/ = change directory system root
+  cd..= it goes up one directory level
+  cd../.. = it goes up two directory level
+  cd~ = it switch home directory of user
+
+q.4 rmdir
+= remove directory = p v
+  p = remove directory tree
+  v = display the name of remove directory
+
+q.5 cat
+= cat file_name = display the content of file
+  cat > file_name = it take input form the file
+  cat >> file_name = it append the file
+  cat < file_name = it display output from the file
+  n = display the number of line of file
+  v = display the non-printable character
+
+q.6 cp
+= copy i r l
+  i = display the overwritted prompt
+  r = create duplicate of one file to another file
+  l = create a link instead of copy a file
+
+q.7 rm
+= remove i r f
+  i[iteractive] = remove a file iteractive
+  r[recusrive] = remove entire structure
+  f[force] = rempve the write protected file without argument
+
+q.8 mv
+= move i r f
+  i [iteractive] = move file iteractive
+  r [recusive] = move entire structure
+  f [force] = move write protected file without argument
+
+q.9 who
+= display the user who logged in the system , h u q
+  h [header] = by default who does not display the column header          but when we use this option it define column header
+
+ u = when system administrator want to know more about user who logged in the system this option will help full to get information about the user with column header
+
+ q[quiet] = it display the logged id and name who are logged into the system
+
+Q.10 who am i
+= display the currently all logged in user in system
+
+Q.11 password
+= it allow to change a password of the system
+
+Q.12
+= Linux support slicing,horizantally, vertically and combination of both
+
+1. head
+= first 10 line NC n q
+  NC = it display the first number of character of file
+  n  = it display number of line instead of default first 10 lines
+  q  = it never print filename as header if more than one file is given
+
+2.tail
+= last 10 lines, NC n q
+  NC = it display the last number of character of a file
+  n = it display last number of line instead of default last 10 line
+  q = it never print filename as header if more than one file is given
+
+3.cut
+= vertically slice d f c n-m m n
+  d = display delimenter of field
+  f = display list of file
+  c = used to display exact the number of character of specified file
+  n-m = it display n to m character of each line of input file
+  m = it display 1st to m character of each line of input file
+  n = it display last to n character of each line of input file 
+
+q.13 tr command
+= translate character, two expression, translate sequence, delete from input and output on a screen, no argument as file name done through a redirection pipe, delete, sequence
+  d = use only one expr, only delete does not translate
+  s = use both expr, translate multiple consecutive character
+
+q.14 wc command
+ = count number of lines, word, character if more than one file is given L, l, w, c, lc
+   L = count the length of the longest line
+   l = print new line character
+   w = count the word
+   c = count the character
+   lc = count line and character
+
+q.15 tee command
+  = it read input from the standard input and write on a standard output as well as file, often use pipe, one input and two output
+
+q.16 chown command
+  = chown command is used to change the owner name of file or directory
+
+q.17 chgrp command
+  = chgrp command is used to change the group name of file or directory
+
+q.18 chmod command
+  = chmod command is used to change the file permission
+    r - read - 4
+    w - write - 2
+    e - execute - 1
+
+ q.19 umask command
+  = user mask, tell a unix which of three permission is denied or granted
+    default permission = system permission - umask
+          "            = 666               - 002
+                       = 664
+
+q.20 bc command
+  = when we invoke bc command without any argument it display header and just blink the cursor nothing to seems scale, ibase, obase
+    scale = decimal point
+    ibase = input base
+    obase = output base
+
+q.21 meta character
+  = * , ? , [], - , |
+  * = represent any combination of zero or both number
+  ? = stands for any character
+  [] = stands to display range
+   - = display the range inside the class
+   | = display the character which is not define in class
+
+   
+  
+

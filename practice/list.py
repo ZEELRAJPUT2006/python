@@ -1,5 +1,5 @@
-list = [10,20,30,40,50,"abc",25.26,True,30]
-print(list)
+# list = [10,20,30,40,50,"abc",25.26,True,30]
+# print(list)
 
 # list.append(60)
 # print(list)
@@ -10,8 +10,8 @@ print(list)
 # l1 = list.insert(5,"zeel")
 # print(list)
 
-list1 = ["nency","nirav","nisha"]
-list2 = list1 + list
+# list1 = ["nency","nirav","nisha"]
+# list2 = list1 + list
 # list.extend(list1)
 # print(list)
 
@@ -46,3 +46,23 @@ list2 = list1 + list
 
 # list[1:3]=["hello"]
 # print(list)
+list2 = ["java","python"]
+
+list = ["hello",123,"@"]
+# list1 = list+list2
+# print(list1)
+# list.append("world")
+# list.insert(5,"python")
+# list.extend("java")
+# print(list)
+
+# list.clear()
+# del list
+
+# list1 = list.copy()
+# print(list1)
+
+# print(list.count("hello"))
+# print(list.pop())
+# print(list.remove("hello"))
+

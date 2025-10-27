@@ -1,5 +1,5 @@
 # string = "hello python"
-string = """hello world"""
+# string = """hello world"""
 # print(string.capitalize())
 # print(string.casefold())
 # print("string".center(11,"*"))
@@ -24,3 +24,31 @@ string = """hello world"""
 # print(string.join(str2))
 # print("good morning".join("st"))
 # print(string)
+
+string = """ hello world """
+# print(string)
+# print(len(string))
+# print(string.capitalize())
+# print(string.casefold())
+# print(string.title())
+# print("string".center(9,"*"))
+# print(string.count("h"))
+# print(string.endswith("d"))
+# print(string.startswith("h"))
+# print(string.upper())
+# print(string.lower())
+# print("abc123".isalnum())
+# print("abc123".isalpha())
+# print("abe12&3".isascii())
+# print("124".isdecimal())
+# print("12345".isdigit())
+# print(string.islower())
+# print(string.isupper())
+# print("abc".isnumeric())
+# print(string.isspace())
+# print(string.index("e"))
+# print(string[-1])
+# print(string[1:5])
+# print("good morning".join(string))
+print(string.split('----'))
+

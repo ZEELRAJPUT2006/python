@@ -1,11 +1,11 @@
 import re
 
-# k = re.match('H.l',"Hello python")
-# k = re.search('H.l',"hello python")
-# k = re.findall('H.l',"hello python")
-# k = re.match('^hello',"hello python")
-# k = re.search('python$',"hello python")
-# print(k)
+k = re.match('H.l',"Hello python")
+k = re.search('H.l',"hello python")
+k = re.findall('H.l',"hello python")
+k = re.match('^hello',"hello python")
+k = re.search('python$',"hello python")
+print(k)
 
 # num = input("enter the number")
 # k = re.match('[0-9]{9}$',num)
@@ -21,10 +21,10 @@ import re
 # else:
 #     print("invalid email")
 
-password = input("Enter the password: ")
-k = re.fullmatch('^[A-Z].*[0-9].*[a-z]$', password)
+# password = input("Enter the password: ")
+# k = re.findall('^[A-Z].*[0-9].*[a-z]$', password)
 
-if k:
-    print("valid password")
-else:
-    print("invalid password")
+# if k:
+#     print("valid password")
+# else:
+#     print("invalid password")

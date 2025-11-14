@@ -1,4 +1,4 @@
-# list = [10,20,30,40,50,"abc",25.26,True,30]
+list = [10,20,30,40,50,"abc",25.26,True,30]
 # print(list)
 
 # list.append(60)
@@ -10,12 +10,12 @@
 # l1 = list.insert(5,"zeel")
 # print(list)
 
-# list1 = ["nency","nirav","nisha"]
-# list2 = list1 + list
+list1 = ["nency","nirav","nisha"]
+list2 = list1 + list
 # list.extend(list1)
 # print(list)
 
-# print(list2.count("nisha"))
+print(list2.count("nisha"))
 
 # list3 = list1.copy()
 # print(list3)
@@ -27,7 +27,7 @@
 # print(len(list1))
 # print(list[:2])
 # print(list[5::2])
-# print(list[::-1])
+print(list[::-1])
 # print(list[:-1])
 # list[2]="apple"
 # print(list)
@@ -65,4 +65,9 @@ list = ["hello",123,"@"]
 # print(list.count("hello"))
 # print(list.pop())
 # print(list.remove("hello"))
-
+# print(list[1:])
+# print(list[1::3])
+# print(list[-1])
+# print(list[:-1])
+# print(list[::-1])
+print(list2.index("java"))

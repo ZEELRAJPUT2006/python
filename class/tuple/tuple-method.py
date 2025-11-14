@@ -6,8 +6,8 @@ t2=tuple((10,20,30))
 # print(t1)
 # print(t2)
 
-l=[10,20,30]
-l1=[10]
+# l=[10,20,30]
+# l1=[10]
 # print(type(t))
 # print(type(t1))
 # print(type(t2))
@@ -15,7 +15,8 @@ l1=[10]
 # print(t[1])
 # print(t[1:5])
 # print(t[-1])
-# print(t[::-1])
+print(t[::-1])
+print(t)
 
 # l=list(t)
 # l.append("tisha")

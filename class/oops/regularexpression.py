@@ -1,10 +1,10 @@
 import re
 
 k = re.match('H.l',"Hello python")
-k = re.search('H.l',"hello python")
-k = re.findall('H.l',"hello python")
-k = re.match('^hello',"hello python")
-k = re.search('python$',"hello python")
+# k = re.search('H.l',"hello python")
+# k = re.findall('H.l',"hello python")
+# k = re.match('^hello',"hello python")
+# k = re.search('python$',"hello python")
 print(k)
 
 # num = input("enter the number")

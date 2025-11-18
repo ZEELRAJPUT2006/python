@@ -128,10 +128,10 @@ string = "hello world"
 # print(set)
 # print(set)
 
-# s = {1,2,3,4}
-# s1 = {4,5,6,2}
+s = {1,2,3,4}
+s1 = {4,5,6,2}
 # print(s1.difference(s))
-# print(s1.difference_update())
+# print(s1.difference_update())-----------
 # print(s1.union(s))
 # print(s1.intersection(s))
 # print(s1.intersection_update(s))

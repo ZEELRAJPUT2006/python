@@ -1,0 +1,183 @@
+1. Printing on screen ----------------------------------------------------
+
+q.1 Introduction to the print() function in Python.
+Ans. The print() function is used to display output on the screen.
+     It can show text, numbers, variables, and results of expressions. 
+     It is written as print(value) and is commonly used for debugging and interacting with users.
+    example: print("hello, python")
+
+q.2 Formatting outputs using f-strings and format().
+Ans. Formatting Outputs using f-strings
+     f-strings provide an easy and readable way to format strings.
+     They start with f and allow variables or expressions inside { }.
+     example: name = "Zeel"
+              age = 20
+              print(f"My name is {name} and I am {age} years old.")
+
+==================================================================================================
+2. Reading Data from Keyboard ----------------------------------------------
+
+q.1 Using the input() function to read user input from the keyboard.
+Ans. The input() function is used to take input from the user through the keyboard.
+     It always returns the input as a string.
+     example: age = int(input("enter your age"))
+
+q.2 Converting user input into different data types (e.g., int, float, etc.).
+Ans. The input() function always returns data as a string, so we must convert it to the required type.
+     example: age = int(input("enter your age"))
+              percentage = float(input("enter your percentage"))
+              flag = bool(input("enter in true/false"))
+              items = list(input("enter your list"))
+
+=====================================================================================================
+3. Opening and Closing Files -----------------------------------------------
+
+q.1 Opening files in different modes ('r', 'w', 'a', 'r+', 'w+')
+Ans. | Mode     | Meaning      | Description                                                                      |
+     | -------- | ------------ | -------------------------------------------------------------------------------- |
+     | **'r'**  | Read         | Opens file for reading. File **must exist**.                                     |
+     | **'w'**  | Write        | Opens file for writing. **Creates new file** or **overwrites** existing file.    |
+     | **'a'**  | Append       | Opens file for appending. Adds data at the **end** without deleting old content. |
+     | **'r+'** | Read + Write | File must exist. Allows both reading and writing without deleting content.       |
+     | **'w+'** | Write + Read | Creates new file or overwrites existing one, but also allows reading.            |
+
+     example:
+          open("demo.txt",'w')
+          open("demo.txt",'r')
+          open("demo.txt",'a')
+          open("demo.txt",'w+')
+          open("demo.txt",'r+')
+
+q.2 Using the open() function to create and access files.
+Ans. The open() function is used in Python to create, read, write, or update files.
+     It takes two main arguments: the file name and the mode.
+     syntax:  
+           file = open("filename.txt", "mode")
+     example:
+           f = open("demo.txt",'w')
+           f.write("hello world")
+           f.close()
+
+q.3 Closing files using close().
+Ans. After finishing any file operation in Python, you should close the file using the close() method. 
+     This frees system resources and ensures that any written data is properly saved to the file.
+     example:
+          f = open("data.txt", "w")
+          f.write("Hello")
+          f.close()
+
+============================================================================================================
+4. Reading and Writing Files -------------------------------------
+
+q.1 Reading from a file using read(), readline(), readlines().
+Ans. 1. read()
+        Reads entire file as a single string.
+        example:
+             f = open("data.txt", "r")
+             content = f.read()
+             print(content)
+             f.close()
+
+     2. readline()
+        Reads one line at a time.
+        example:
+             f = open("data.txt", "r")
+             line = f.readline()
+             print(line)
+             f.close()
+
+     3. readlines()
+        Reads all lines and returns them as a list.
+        example:
+             f = open("data.txt", "r")
+             lines = f.readlines()
+             print(lines)
+             f.close()
+
+q.2 Writing to a file using write() and writelines().
+Ans. Python provides two main methods to write data to a file: write() and writelines().
+     1. write()
+        Writes a single string to the file.
+        example:
+             f = open("data.txt", "w")
+             f.write("Hello World\n")
+             f.write("This is Python.")
+             f.close()
+
+     2. writelines()
+        Writes a list of strings to the file.
+        example:
+             f = open("data.txt", "w")
+             lines = ["Line 1\n", "Line 2\n", "Line 3\n"]
+             f.writelines(lines)
+             f.close()
+
+=====================================================================================================
+5. Exception Handling --------------------------------------------------
+
+q.1 Introduction to exceptions and how to handle them using try, except, and finally.
+Ans. Exceptions are errors that occur during program execution.
+     Instead of crashing the program, Python allows you to handle these errors gracefully using try, except, and finally blocks
+     
+     1 try block
+     = Contains the code that may cause an error.
+
+     2 except block
+     = Catches and handles the error.
+
+     3 finally block
+     = This block always runs, whether an error occurs or not.
+     = Useful for cleanup tasks like closing files.
+
+     = example:
+            try:
+                 x = int(input("Enter a number: "))
+                 print(10 / x)
+        except ZeroDivisionError:
+                print("Cannot divide by zero!")
+        except ValueError:
+                 print("Invalid input!")
+        finally:
+                 print("Program ended.")
+
+q.2 Understanding multiple exceptions and custom exceptions.
+Ans. Sometimes different types of errors can occur in the same block of code.
+     Python lets you handle each error separately using multiple except blocks.
+     example:
+          try:
+                x = int(input("Enter a number: "))
+                print(10 / x)
+         except ValueError:
+                print("You must enter a valid number!")
+         except ZeroDivisionError:
+                print("Number cannot be zero!")
+         except Exception as e:
+                print("Some other error occurred:", e)
+
+      2. Custom Exceptions
+        Python allows you to create your own exceptions using classes.
+        This is useful when you want to enforce your own rules or validation.
+        example:
+             class AgeError(Exception):
+             pass
+
+            try:
+                age = int(input("Enter age: "))
+                    if age < 0:
+                        raise AgeError("Age cannot be negative!")
+                        print("Valid age")
+            except AgeError as e:
+                print(e)
+========================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+

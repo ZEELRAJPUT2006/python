@@ -509,3 +509,63 @@
 # ------------------------------------ method overloading and overridding ------------------------
 # q.29 Write Python programs to demonstrate method overloading and method overriding
 
+# class maths:
+#     def calcultor(self,a,b=0):
+#         return a+b
+    
+# m = maths()
+# print(m.calcultor(5))
+# print(m.calcultor(5,5))
+
+# class Student:
+#     def __init__(self, marks):
+#         self.marks = marks
+
+#     def __add__(self, other):
+#         return self.marks + other.marks
+
+# s1 = Student(85)
+# s2 = Student(75)
+
+# print(s1 + s2)   
+
+# -------------------------------------- sql ----------------------------------------
+# q.30 Write a Python program to create a database and a table using SQLite3
+# import sqlite3 
+
+
+# db = sqlite3.connect("practical.db")
+# db.execute("create table student(id int primary key, name varchar(50), age int, marks int)")
+
+# q.31 Write a Python program to insert data into an SQLite3 database and fetch it.
+# import sqlite3
+
+# db = sqlite3.connect("practical.db")
+# # db.execute("insert into student values(1,'bob',25,55)")
+# db.execute("insert into student values(2,'het',15,65)")
+# db.execute("insert into student values(3,'jeet',10,95)")
+# db.execute("insert into student values(4,'meet',12,85)")
+# db.execute("insert into student values(5,'reet',16,97)")
+
+# db.commit()
+         
+# ----------------------------- regular expression ------------------------------
+# q.32 Write a Python program to search for a word in a string using re.search().
+# import re
+# k = re.search("h.","hello world")
+# print(k)
+
+# q.33 Write a Python program to match a word in a string using re.match().
+# import re
+# k = re.match('h.',"hello world")
+# print(k)
+
+# q.34 Write a Python program to search for a word in a string using re.search()
+# import re
+# k = re.search('h',"hello heery")
+# print(k)
+
+# q.35 Write a Python program to match a word in a string using re.match()
+import re
+k = re.match('h',"hello harry")
+print(k)

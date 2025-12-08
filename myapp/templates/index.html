@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Form</title>
@@ -104,3 +105,74 @@
   </div>
 </body>
 </html>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-5 p-3 card">
+                <h1>Student Regsitration Form</h1>
+                <br>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{stud.id}}">
+                    <input type="text" name="first_name" placeholder="enter name" class="form-control" value="{{stud.first_name}}">
+                    <br>
+                    <input type="text" name="last_name" placeholder="enter last name" class="form-control" value="{{stud.last_name}}">
+                    <br>
+                    <input type="text" name="rollno" placeholder="enter rollnumber" class="form-control" value="{{stud.rollno}}">
+                    <br>
+                    <input type="text" name="subject" placeholder="enter subject" class="form-control" value="{{stud.subject}}">
+                    <br>
+                    <input type="text" name="marks" placeholder="enter marks" class="form-control" value="{{stud.marks}}">
+                    <br>
+                    <input type="submit" class="btn btn-success">
+                    <input type="reset" class="btn btn-primary">
+                </form>
+            </div>
+       <div class="col-1">
+
+        </div>
+     
+   <div class="col-6 card p-3">
+    <h2>Student Details:</h2>
+
+    <table class="table mt-3">
+
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Roll No</th>
+            <th>Subject</th>
+            <th>Marks</th>
+            <th colspan="2">Action</th>
+        </tr>
+
+        {% for stud in students %}
+        <tr>
+            <td>{{ stud.id }}</td>
+            <td>{{ stud.first_name }}</td>
+            <td>{{ stud.last_name }}</td>
+            <td>{{ stud.rollno }}</td>
+            <td>{{ stud.subject }}</td>
+            <td>{{ stud.marks }}</td>
+            <td><a href="{% url 'edit' %}?id={{ stud.id }}" class="btn btn-primary">Edit</a></td>
+            <td><a href="{% url 'delete' %}?id={{ stud.id }}" class="btn btn-success">Delete</a></td>
+
+        </tr>
+        {% endfor %}
+        
+                 </table>
+              </div>
+         </div>
+     </div>
+ </div>
+    
+</body>
+</html>
+>>>>>>> 5f6774e49d9cd9cf0a3fcb75114a3c24b6e24981

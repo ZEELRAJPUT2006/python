@@ -2,7 +2,11 @@
 URL configuration for myproject project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
+<<<<<<< HEAD
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
+=======
+    https://docs.djangoproject.com/en/5.2/topics/http/urls/
+>>>>>>> a6120792a626c93a53c70e731eb58ce82265ed62
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,9 +19,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a6120792a626c93a53c70e731eb58ce82265ed62
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('',include('myapp.urls'))
+=======
+    path('',include('myapp.urls')),
+=======
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include("myapp.urls")),
+>>>>>>> 5f6774e49d9cd9cf0a3fcb75114a3c24b6e24981
+>>>>>>> a6120792a626c93a53c70e731eb58ce82265ed62
 ]

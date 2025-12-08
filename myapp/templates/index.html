@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{%url 'register'%}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{e.id}}">
+        <input type="text" name="name" placeholder="enter ename" value="{{e.name}}">
+        <input type="text" name="age" placeholder="enter age" value="{{e.age}}">
+        <input type="text" name="salary" placeholder="enter salary" value="{{e.salary}}">
+        <input type="text" name="dept" placeholder="enter dept" value="{{e.dept}}">
+        <input type="submit" value="submit">
+        <a href="{%url 'display'%}">view data</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function validation(){
+               var name = document.getElementById("name").value
+               var email = document.getElementById("email").value
+               var phone = document.getElementById("phone").value
+               var pass = document.getElementById("pass").value
+               var cpass  = document.getElementById("cpass").value
+
+               var nameErr = document.getElementById("nameErr")
+               var emailErr = document.getElementById("emailErr")
+               var phoneErr = document.getElementById("phoneErr")
+               var passErr = document.getElementById("passErr")
+               var cpassErr = document.getElementById("cpassErr")
+
+               var btn = document.getElementById("btnsub")
+
+               var nameExp = /^[a-zA-Z]+$/
+               var emailExp = /^[a-zA-Z0-9_.]+@[a-zA-Z]+\.[a-zA-Z]{2,4}$/
+               var phoneExpr = /^[0-9]+$/
+               var passExpr = /^[A-Za-z0-9@]{5,15}$/
+
+               if (name == "" || name == null)
+               {
+                nameErr.innerHTML="name is required"
+                btn.disabled = true
+               }
+               else if(!nameExp.test(name))
+               {
+                    nameErr.innerHTML="only chracter are allowed"
+                    btn.disabled = true
+               }
+               else
+               {
+                nameErr.innerHTML=" "
+                btn.disabled = false
+               }
+            // -------------------------------------------------------
+               if (email == "" || email == null)
+               {
+                emailErr.innerHTML="email is required"
+                btn.disabled = true
+               }
+               else if(!emailExp.test(email))
+               {
+                emailErr.innerHTML="invalid email"
+                btn.disabled = true
+               }
+               else
+               {
+                emailErr.innerHTML=""
+                btn.disabled = false
+               }
+            //-----------------------------------------------------
+
+            if (phone == ""|| phone == null)
+            {
+                phoneErr.innerHTML="phone number is required"
+                btn.disabled = true
+            }
+            else if (!phoneExpr.test(phone))
+            {
+                phoneErr.innerHTML="phone number must be 10 digit"
+                btn.disabled = true
+            }
+            else
+            {
+                phoneErr.innerHTML=""
+                btn.disabled = false
+            }
+
+            //------------------------------------------------------
+
+            if (pass == "" || pass == null)
+            {
+                passErr.innerHTML="password must be required"
+                btn.disabled = true
+            }
+            else if (!passExpr.test(pass))
+            {
+                passErr.innerHTML="invalid password"
+                btn.disabled = true
+            }
+            else
+            {
+                passErr.innerHTML=""
+                btn.disabled = false
+            }
+
+            //----------------------------------------------
+            if (cpass == "" || cpass == null)
+            {
+                cpassErr.innerHTML="confirm password must be required"
+                btn.disabled = true
+            }
+            else if(pass != cpass)
+            {
+                cpassErr.innerHTML="confirm password must be same"
+                btn.disabled = true
+            }
+            else
+            {
+                cpassErr.innerHTML=""
+                btn.disabled = false
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-lg p-4 rounded-3">
+                <h3 class="text-center mb-4">Registration Form</h3>
+
+                <form>
+
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" onkeyup="validation()">
+                        <span id="nameErr" class="text-danger"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" onkeyup="validation()">
+                        <span id="emailErr" class="text-danger"></span>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="mb-3">
+                        <label class="form-label">Phone No</label>
+                        <input type="tel" class="form-control" id="phone" onkeyup="validation()">
+                        <span id="phoneErr" class="text-danger"></span>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" id="pass" onkeyup="validation()">
+                        <span id="passErr" class="text-danger"></span>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="mb-3">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="cpass" onkeyup="validation()">
+                        <span id="cpassErr"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid mt-3">
+                        <button type="submit" class="btn btn-primary" id="btnsub">Register</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

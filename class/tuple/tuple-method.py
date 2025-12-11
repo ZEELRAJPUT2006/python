@@ -22,8 +22,8 @@ print(t)
 # l.append("tisha")
 # print(tuple(l))
 
-# t1=(10,20,30,40,50)
-# (a,b,c,*d)=1
-# print(d)
+t1=(10,20,30,40,50)
+(a,b,c,*d)=t1
+print(d)
 
-# print(t1*2)
+print(t1*2)

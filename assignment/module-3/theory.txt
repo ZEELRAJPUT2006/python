@@ -169,10 +169,325 @@ Ans. Sometimes different types of errors can occur in the same block of code.
             except AgeError as e:
                 print(e)
 ========================================================================================================
+6. 6. Class and Object (OOP Concepts) --------------------------------------------
+q.1 Understanding the concepts of classes, objects, attributes, and methods in Python.
+Ans. 
+(I) Class 
+➢ A class is a blueprint or template for creating objects. It defines attributes (variables) and 
+methods (functions). 
+Example: 
+               class Car: 
+               color = "prusian blue"    #attribute 
+               def drive(self):       
+               #method 
+               print("The car is driving.") 
+(II) Object 
+➢ An object is an instance of a class. It is created using the class and can access its attributes and 
+methods. 
+Example: 
+               my_car = Car()       
+               # object created from class Car 
+               print(my_car.color)  # accessing attribute 
+               my_car.drive()
+(III) Attributes 
+       
+calling method 
+➢ Attributes are variables inside a class. They store the state or data of an object. 
+• You can have class attributes (shared by all objects) 
+• Or instance attributes (unique to each object) 
+Example: 
+               class Dog: 
+               def __init__(self, name): 
+               self.name = name              
+               my_dog = Dog("Buddy") 
+               print(my_dog.name)                  
+(IV) Methods 
+# instance attribute 
+# Output: Buddy 
+Methods are functions defined inside a class. They can use and modify attributes and define object 
+behavior. 
+Example: 
+               class Calculator: 
+               def add(self, a, b): 
+               return a + b 
+               calc = Calculator() 
+               print(calc.add(3, 5))              
+               # Output: 8 
 
+Q.13  Difference between local and global variables.  
+(I)Local Variable 
+• Defined inside a function 
+• Accessible only within that function 
+Example: 
+               def greet(): 
+               name = "Alice"  # local variable 
+               print(name) 
+(II)  Global Variable 
+• Defined outside any function 
+• Can be accessed anywhere in the program 
+Example: 
+               name = "Bob"            
+               def greet(): 
+               print(name)            
+               greet() 
+# global variable 
+# can access global variable 
+➢ Modifying Global Variables Inside Functions 
+• If you want to change a global variable inside a function, use the global keyword. 
+               x = 10 
+               def update(): 
+               global x 
+               x = 20 
+               update() 
+               print(x)          
+               # Output: 20 
+===============================================================================================
+7. Inheritance ---------------------------------------------------- 
+Q.14 Single, Multilevel, Multiple, Hierarchical, and Hybrid inheritance in Python. 
+➢ Inheritance allows a class (child) to inherit properties and methods from another class (parent). 
+(1) Single Inheritance 
+➢ One child class inherits from one parent class. 
+               class Animal: 
+               def sound(self): 
+               print("Animal sound") 
+               class Dog(Animal): 
+               def bark(self): 
+               print("Dog barks") 
+               d = Dog() 
+               d.sound()   # Inherited 
+               d.bark()    # Own method 
 
+(2) Multilevel Inheritance 
+➢ A class inherits from a class, which in turn inherits from another class. 
+Example: 
+               class Animal: 
+               def sound(self): 
+               print("Animal sound") 
+               class Dog(Animal): 
+               def bark(self): 
+               print("Dog barks") 
+               class Puppy(Dog): 
+               def weep(self): 
+               print("Puppy weeps") 
+               p = Puppy() 
+               p.sound()            
+               p.bark()               
+               p.weep()             
+               # From Animal 
+               # From Dog 
+               # Own 
 
+(3) Multiple Inheritance 
+➢ A child class inherits from more than one parent class. 
+Example: 
+               class Father: 
+               def skills(self): 
+               print("Gardening") 
+               class Mother: 
+               def traits(self): 
+               print("Cooking") 
+               class Child(Father, Mother): 
+               pass 
+               c = Child() 
+               c.skills() 
+               c.traits() 
 
+(4) Hierarchical Inheritance 
+➢ Multiple child classes inherit from the same parent class. 
+Example: 
+               class Vehicle: 
+               def engine(self): 
+               print("Engine started") 
+               class Car(Vehicle): 
+               pass 
+               class Bike(Vehicle): 
+               pass 
+               c = Car() 
+               b = Bike() 
+               c.engine() 
+               b.engine()
+
+(5) Hybrid Inheritance 
+➢ A combination of two or more types of inheritance. 
+               class A: 
+               def show(self): 
+               print("Class A") 
+               class B(A): 
+               pass 
+               class C(A): 
+               pass 
+               class D(B, C):  # Inherits from both B and C (multilevel + multiple) 
+               pass 
+               d = D() 
+               d.show() 
+
+Q.15 Using the super() function to access properties of the parent class.  
+➢ The super() function is used to call methods or constructors of the parent class. 
+i.Calling Parent Constructor 
+               class Animal: 
+               def __init__(self, name): 
+               self.name = name 
+               class Dog(Animal): 
+               def __init__(self, name, breed): 
+               super().__init__(name)   # Call parent __init__ 
+               self.breed = breed 
+               d = Dog("Tommy", "Labrador") 
+               print(d.name, d.breed) 
+               ii. Calling Parent Methods 
+               class A: 
+               def greet(self): 
+               print("Hello from A") 
+               class B(A): 
+               def greet(self): 
+               super().greet()  # Call parent method 
+               print("Hello from B") 
+               b = B() 
+               b.greet() 
+
+===================================================================================================================
+8. Method Overloading and Overriding  -------------------------------------------------------------------------------------
+Q.16 Method overloading: defining multiple methods with the same name but different parameters.  
+(I)Method Overloading: 
+Method Overloading means defining multiple methods with the same name but different parameters. 
+In some languages like Java, this is done by changing the number/type of arguments. 
+But in Python, true method overloading is not directly supported because Python methods can 
+accept any number of arguments using *args and **kwargs. 
+This works because Python uses default arguments or *args to mimic overloading. 
+Simulating Method Overloading in Python 
+               class Greet: 
+               def hello(self, name=None): 
+               if name: 
+               print(f"Hello, {name}!") 
+               else: 
+               print("Hello!") 
+               g = Greet() 
+               g.hello()                     
+               g.hello("Alice")         
+               # Output: Hello! 
+               # Output: Hello, Alice! 
+
+Q.17 Method overriding: redefining a parent class method in the child class.  
+Method Overridding: 
+➢ Method Overriding means redefining a method from the parent class in the child class to provide a 
+different implementation. 
+Example: 
+               class Animal: 
+               def speak(self): 
+               print("Animal makes a sound") 
+               class Dog(Animal): 
+               def speak(self):  # overriding the method 
+               print("Dog barks") 
+               d = Dog() 
+               d.speak()  # Output: Dog barks 
+➢ Using super() with Overriding 
+You can still call the parent version of the overridden method using super(): 
+Example: 
+               class Dog(Animal): 
+               def speak(self): 
+               super().speak() 
+               print("Dog barks") 
+               d = Dog() 
+               d.speak() 
+
+================================================================================================
+9. SQLite3 and PyMySQL (Database Connectors)  -------------------------------------
+Q.18 Introduction to SQLite3 and PyMySQL for database connectivity.  
+(I)SQLite3 
+• SQLite is a lightweight, serverless, self-contained SQL database engine. 
+• It stores the entire database in a single file on the disk. 
+• Ideal for small to medium applications, prototyping, or embedded systems. 
+• Python has a built-in module sqlite3 for connecting and interacting with SQLite databases. 
+Example: 
+               import sqlite3 
+               # Connect to a database (or create one if it doesn't exist) 
+               conn = sqlite3.connect('example.db') 
+               cursor = conn.cursor() 
+               # Create a table 
+               cursor.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER, name TEXT)') 
+               # Commit and close 
+               conn.commit() 
+               conn.close() 
+(II) PyMySQL 
+• PyMySQL is a third-party library used to connect Python with MySQL databases. 
+• Suitable for web applications, large datasets, and multi-user environments. 
+• Requires the MySQL server to be installed and running. 
+Example: 
+               import pymysql 
+               # Connect to MySQL 
+               conn = pymysql.connect (   host='localhost', 
+               user='root', 
+               password='yourpassword', 
+               database='testdb'  ) 
+               cursor = conn.cursor() 
+               # Create a table 
+               cursor.execute('CREATE TABLE IF NOT EXISTS users (id INT, name VARCHAR(100))') 
+               # Commit and close 
+               conn.commit() 
+               conn.close() 
+
+Q.19 Creating and executing SQL queries from Python using these connectors.  
+➢ With SQLite3: 
+               import sqlite3 
+               conn = sqlite3.connect('example.db') 
+               cursor = conn.cursor() 
+               # Insert data 
+               cursor.execute("INSERT INTO users (id, name) VALUES (?, ?)", (1, 'Alice')) 
+               # Select data 
+               cursor.execute("SELECT * FROM users") 
+               rows = cursor.fetchall() 
+               for row in rows: 
+               print(row) 
+               conn.commit() 
+               conn.close() 
+➢ With PyMySQL: 
+               import pymysql 
+               conn = pymysql.connect ( host='localhost', 
+               user='root', 
+               password='yourpassword', 
+               database='testdb'    ) 
+               cursor = conn.cursor() 
+               # Insert data 
+               cursor.execute("INSERT INTO users (id, name) VALUES (%s, %s)", (1, 'Alice')) 
+               # Select data 
+               cursor.execute("SELECT * FROM users") 
+               rows = cursor.fetchall() 
+               for row in rows: 
+               print(row) 
+               conn.commit() 
+               conn.close() 
+=========================================================================================================
+10. Search and Match Functions  ------------------------------------------------------
+Q.20 Using re.search() and re.match() functions in Python’s re module for pattern matching.  
+➢ The re module provides support for regular expressions in Python. 
+re.search() 
+• Searches the entire string for a match. 
+• Returns a match object if found; otherwise, returns None. 
+re.match() 
+• Checks for a match only at the beginning of the string. 
+          Example: 
+          import re 
+          text = "Hello, welcome to Python!" 
+
+          # re.search 
+          result1 = re.search("welcome", text) 
+          print(result1.group())       
+
+          # re.match 
+          result2 = re.match("Hello", text) 
+          print(result2.group())                  
+          # Output: welcome 
+          # Output: Hello 
+          result3 = re.match("welcome", text) 
+          print(result3)                  
+          # Output: None (because it doesn't start the string) 
+
+Q.21 Difference between search and match.  
+| Feature             | `match()`                                              | `search()`                                   |
+| ------------------- | ------------------------------------------------------ | -------------------------------------------- |
+| **Where it checks** | Checks **only at the beginning** of the string         | Checks **anywhere in the entire string**     |
+| **Returns**         | Match object **only if the pattern starts at index 0** | Match object **if pattern appears anywhere** |
+| **Useful for**      | Checking if a string **starts** with something         | Finding if a pattern **exists anywhere**     |
+| **Example**         | `"Hello World"` → match `"Hello"` ✔                    | `"Hello World"` → search `"World"` ✔        |
 
 
 

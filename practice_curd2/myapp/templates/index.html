@@ -17,6 +17,7 @@
                     <br>
                     <input type="text" placeholder="enter email" name="email" class="form-control" value="{{s.email}}"><br>
                     <br>
+                    <input type="text" name="password" placeholder="enter password" class="form-control">
                      {% if s%}
                      <img src="media/{{s.image}}" alt="">
                      <span>{{s.image}}</span>
@@ -24,6 +25,7 @@
                     <br><br>
                     <input type="file" name="image" class="form-control" width="50px" height="50px"><br>
                     <input type="submit" class="btn btn-success">
+                    <a href="{%url 'login'%}">login</a>
                 </form>
             </div>
 
@@ -31,7 +33,7 @@
 
             </div>
 
-            <div class="col-6 card p-3">
+            <!-- <div class="col-6 card p-3">
                 <table class="table">
                     <tr>
                         <th>ID</th>
@@ -52,7 +54,7 @@
                     </tr>
                     {% endfor %}
                 </table>
-            </div>
+            </div> -->
         
          </div>
     

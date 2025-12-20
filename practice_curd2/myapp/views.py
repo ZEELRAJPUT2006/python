@@ -8,8 +8,9 @@ def index(request):
         id = request.POST['id']
         name = request.POST['name']
         email = request.POST['email']
+        password = request.POST['password']
         image = request.FILES.get('image')
-        student.objects.create(name=name,email=email,image=image)
+        student.objects.create(name=name,email=email,image=image,password=password)
     return render(request,'index.html',{'students':students})
 
 def delete_date(request):
@@ -38,5 +39,17 @@ def edit_data(request):
           id = request.GET['id']
           s = student.objects.get(pk=id)
           return render(request,'index.html',{'students':students,'s':s})
+     
+def login_data(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        s = student.objects.get(username=username,password=password)
+        request.session['student_id'] = s.id
+        request.session['student_username'] = s.username
+
+
+    return render(request, 'login.html')
           
 

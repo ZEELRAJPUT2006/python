@@ -33,3 +33,6 @@ def edit_data(request):
         id = request.GET['id']
         e = emp.objects.get(pk=id)
         return render(request,'index.html',{'emps':emps,'e':e})
+    
+def login_data(request):
+    return render(request,'login.html')

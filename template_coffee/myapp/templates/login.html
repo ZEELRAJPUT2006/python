@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe Beans - Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div class="wrapper">
+
+        <!-- LEFT IMAGE -->
+        <div class="left">
+            <img src="{% static 'img/service-3.jpg' %}" alt="Coffee Image">
+        </div>
+
+        <!-- RIGHT LOGIN CARD -->
+        <div class="right">
+            <div class="logo">
+                <img src="{% static 'img/service-3.png' %}" alt="">
+                <h2>Cafe <span>KOPPEE</span></h2>
+            </div>
+
+            <h3>Welcome Back, Please login to your account</h3>
+            <span>{{err}}</span>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Enter username">
+
+                <label>Password</label>
+                <div class="password-box">
+                    <input type="password" name="password" placeholder="Enter Password" class="text-danger">
+                </div>
+
+                
+                <button type="submit" class="btn">Sign In</button>
+
+                <p class="or">Or</p>
+
+                <button class="google-btn">Sign in with Google</button>
+
+                <p class="signup">Don't have an account? <a href="{%url 'registration'%}">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

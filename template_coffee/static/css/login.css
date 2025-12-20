@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #FFFBF2;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 950px;
+    height: 650px;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    border-radius: 25px;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+/* LEFT SIDE IMAGE */
+.left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* RIGHT SIDE LOGIN */
+.right {
+    width: 50%;
+    background: #111;
+    padding: 40px 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo h2 {
+    font-size: 26px;
+    margin-top: 10px;
+}
+
+.logo span {
+    color: #c79b54;
+}
+
+.right h3 {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+label {
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background: #FFFBF2;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    color: white;
+    margin: 6px 0 15px;
+}
+
+/* .password-box {
+    position: relative;
+} */
+
+/* .eye {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    cursor: pointer;
+} */
+
+.remember {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.remember a {
+    color: #c79b54;
+}
+
+.btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    background: white;
+    color: black;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.or {
+    text-align: center;
+    margin: 10px 0;
+    font-weight: 300;
+}
+
+.google-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 50px;
+    background: #333;
+    border: 1px solid #555;
+    color: white;
+    cursor: pointer;
+}
+
+.signup {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup a {
+    color: #c79b54;
+    font-weight: 600;
+}

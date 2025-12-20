@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row mt-3">
+        <div class="col-5 card p-3">
+            <form action=" " method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h3>Student registration form</h3>
+                <hr>
+                <input type="hidden" name="id" value="{{s.id}}">
+                <input type="text" name="name" placeholder="enter name" class="form-control" value="{{s.name}}">
+                <br><br>
+                <input type="text" name="email" placeholder="enter email" class="form-control" value="{{s.email}}">
+                <br><br>
+                <input type="text" name="age" placeholder="enter age" class="form-control" value="{{s.age}}">
+                <br><br>
+                <label for="">class_room</label>
+                <select name="class_room" class="form control">
+                    <option>Class A</option>
+                    <option>Class B</option>
+                    <option>Class C</option>
+                    <option>Class D</option>
+                </select>
+                <br><br>
+
+                {% if s%}
+                <img src="/media/{{s.image}}" alt="" width="50px" height="50px">
+                {% endif %}
+                <br>
+
+                <input type="file" name="image" value="{{s.image}}">
+                <br><br>
+                <input type="submit" class="btn btn-success">
+                <input type="reset" class="btn btn-danger">
+            </form>
+        </div>
+
+        <div class="col-1">
+
+        </div>
+
+        <div class="col-6 card p-3">
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>class_room</th>
+                    <th>Image</th>
+                    <th colspan="2">Action</th>
+                </tr>
+
+                {% for stud in students%}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{stud.name}}</td>
+                    <td>{{stud.email}}</td>
+                    <td>{{stud.age}}</td>
+                    <td>{{stud.class_room}}</td>
+                    <td><img src="/media/{{stud.image}}" alt="{{stud.image}}" width="50px" height="50px"></td>
+                    <td><a href="{%url 'delete'%}?id={{stud.id}}" class="btn btn-danger">Delete</a></td>
+                    <td><a href="{%url 'edit'%}?id={{stud.id}}" class="btn btn-success">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

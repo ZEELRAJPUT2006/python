@@ -6,7 +6,7 @@ l = ["apple","banana","mango","grapes"]
 # print(l[:1])
 # print(l[1])
 # print(l[:-1])
-# print(l[::-1])
+print(l[::-1])
 
 # l[2] = "watermallen"
 # print(l)

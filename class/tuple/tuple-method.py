@@ -1,6 +1,6 @@
-t=(10,20,30,40,50,"abc",41.55,True)
+# t=(10,20,30,40,50,"abc",41.55,True)
 t1=(10,)
-t2=tuple((10,20,30))
+# t2=tuple((10,20,30))
 # print(t)
 # print(len(t))
 # print(t1)
@@ -15,15 +15,18 @@ t2=tuple((10,20,30))
 # print(t[1])
 # print(t[1:5])
 # print(t[-1])
-print(t[::-1])
-print(t)
+# print(t[::-1])
+# print(t)
 
 # l=list(t)
 # l.append("tisha")
 # print(tuple(l))
 
 t1=(10,20,30,40,50)
-(a,b,c,*d)=t1
-print(d)
+# (a,b,c,*d)=t1
+# print(d)
+# print(t1*2)
 
-print(t1*2)
+l1 = list(t1)
+l1.append("hello")
+print(tuple(l1))

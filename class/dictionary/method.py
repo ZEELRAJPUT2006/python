@@ -1,6 +1,6 @@
 s = {"name":"tisha","age":"20","phoneno":"1223456789"}
-# st = {"name":"zeel","age":"20","lan":["c","c++"]}
-# print(st['lan'][1])
+st = {"name":"zeel","age":"20","lan":["c","c++"]}
+print(st['lan'][1])
 # st['name']="devanshi"
 # st.update({"age":23})
 # print(s.keys())
@@ -8,7 +8,7 @@ s = {"name":"tisha","age":"20","phoneno":"1223456789"}
 # print(s.items())
 # print(s)
 # print(s["name"])
-# print(s.get("age"))
+print(s.get("age"))
 # print(s)
 # for i,j in s.items():
 #     print(i,j)
@@ -20,4 +20,4 @@ s = {"name":"tisha","age":"20","phoneno":"1223456789"}
 # del s
 # print(len(s))
 
-print(s)
+# print(s)

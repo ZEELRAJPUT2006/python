@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $("#document").ready(function(){
+            
+        })
+
+        function send(){
+            var data = $('#data').val()
+            $.get('view',{data},function(rt){
+                row = "<ul>"
+                    rt.products.map(ele => {
+                        row += `<li>${ele.name}</li>`
+                    })
+                row += "</ul>"
+                $('#tdata').html(row)
+            })
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="data" id="data" onkeyup="send()">
+    <div id="tdata"></div>
+</body>
+</html>

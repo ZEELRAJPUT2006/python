@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 
@@ -10,6 +10,9 @@ def login_data(request):
         u = authenticate(username=username,password=password)
         if u is None:
             return render(request,'login.html')
+        else:
+            login(request,u)
+            redirect('index')
     return render(request,'login.html')
 
 def reg_data(request):
@@ -23,3 +26,5 @@ def reg_data(request):
         u.save()
     return render(request,'reg.html')
 
+def index(request):
+    return render(request,'index.html')

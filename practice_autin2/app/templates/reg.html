@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="row-3 mt-3 p-5">
+        <div class="col-3 card  p-5 m-5 mx-auto">
+            <form action="" method="post">
+                {% csrf_token %}
+                 <h2>registration Form</h2>
+                 <hr>
+                 <input type="text" name="fname" class="form-control" placeholder="enter name">
+                 <br>
+                 <input type="text" name="email" class="form-control" placeholder="enter email">
+                 <br>
+                 <input type="text" name="username" class="form-control" placeholder="enter username">
+                 <br>
+                 <input type="password" name="password" class="form-control" placeholder="enter password">
+                 <br>
+                 <input type="submit" class="btn btn-success" width="70px"> <a href="{% url 'login'%}">Login here</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

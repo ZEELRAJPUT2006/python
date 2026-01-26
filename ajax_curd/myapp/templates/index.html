@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            viewstudent()
+
+            $("#btnup").hide()
+        })
+
+        function addstudent(){
+            var name = $("#name").val()
+            var email = $("#email").val()
+            var phone = $("#phone").val()
+            var csrfmiddlewaretoken = $('input[name="csrfmiddlewaretoken"]').val()
+
+            $.post('register',{csrfmiddlewaretoken,name,email,phone},function(rt){
+                alert(rt)
+
+                $("#name").val("")
+                $("#email").val("")
+                $("#phone").val("")
+
+                viewstudent()
+            })
+        }
+
+        function viewstudent(){
+            $.get("display",{},function(rt){
+                var rows = ""
+                rt.students.map(ele => {
+                   rows += `<tr>
+                    <td>${ele.id}</td>
+                    <td>${ele.name}</td>
+                    <td>${ele.email}</td>
+                    <td>${ele.phone}</td>
+                    <td><button class='btn btn-danger' onclick='delete_data(${ele.id})'>Delete</button></td>
+                    <td><button class='btn btn-primary' onclick='edit_data(${ele.id})'>Edit</button></td>
+                    </tr>`
+                })
+                $("#tdata").html(rows)
+            })
+        }
+
+        function delete_data(sid){
+            $.get("delete_data",{sid},function(rt){
+                alert(rt)
+                viewstudent()
+            })
+        }
+
+        function edit_data(sid){
+            $.get("edit_data",{sid},function(rt){
+
+                $("#id").val(rt.students[0].id)
+                $("#name").val(rt.students[0].name)
+                $("#email").val(rt.students[0].email)
+                $("#phone").val(rt.students[0].phone)
+
+                $("#btnup").show()
+                $("#btnsub").hide()
+                
+            })
+        }
+
+        function update_data()
+        {
+            var id = $("#id").val()
+            var name = $("#name").val()
+            var email = $("#email").val()
+            var phone = $("#phone").val()
+            var csrfmiddlewaretoken = $('input[name="csrfmiddlewaretoken"]').val()
+
+            $.post('update_data', { csrfmiddlewaretoken, id, name, email, phone }, function (rt) {
+                alert(rt)
+
+                $("#id").val("")
+                $("#name").val("")
+                $("#email").val("")
+                $("#phone").val("")
+
+                viewstudent()
+
+                $("#btnsub").show()
+                $("#btnup").hide()
+           }) 
+            
+        }
+
+        function search(value){
+            $.get("search",{ value }, function(rt){
+                var rows = ""
+                rt.students.map(ele => {
+                   rows += `<tr>
+                    <td>${ele.id}</td>
+                    <td>${ele.name}</td>
+                    <td>${ele.email}</td>
+                    <td>${ele.phone}</td>
+                    <td><button class='btn btn-danger' onclick='delete_data(${ele.id})'>Delete</button></td>
+                    <td><button class='btn btn-primary' onclick='edit_data(${ele.id})'>Edit</button></td>
+                    </tr>`
+                })
+                $("#tdata").html(rows)
+            })
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+
+    <h3 class="mb-4 text-center">student Registration Form</h3>
+       
+    <!-- Form -->
+    <div class="row g-3">
+         {% csrf_token %}
+         
+            <!-- <label class="form-label">Name</label> -->
+            <input type="hidden" id="id" name="id">
+        
+        <div class="col-md-4">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Enter name" id="name" name="name">
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Enter email" id="email" name="email">
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" placeholder="Enter phone" id="phone" name="phone">
+        </div>
+
+        <div class="col-12 text-center">
+        <button type="button" id="btnsub" class="btn btn-primary mt-3" onclick="addstudent()">Submit</button>
+        </div>
+
+        <div class="col-12 text-center">
+        <button type="button"  id="btnup" class="btn btn-primary mt-3" onclick="update_data()">Update</button>
+        </div>
+    </div>
+    <!-- </form> -->
+
+    <!-- Table -->
+    <h3 class="mt-5 mb-3 text-center">student Details</h3>
+     <input type="text" class="form-control" placeholder="search" onkeyup="search(value)">
+
+    <table class="table table-bordered table-striped text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody id="tdata">
+            
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

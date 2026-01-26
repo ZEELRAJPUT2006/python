@@ -13,7 +13,13 @@ urlpatterns = [
     path('testimonial/',testimonial,name='testimonial'),
     path('login/',login_data,name='login'),
     path('registration/',registration,name='registration'),
-    path('logout/',logout_data,name='logout')
+    path('logout/',logout_data,name='logout'),
+    path('cart',cart,name='cart'),
+    path('serach',serach,name='serach'),
+    path('addtocart/',addtocart,name='addtocart'),
+    path('details',details,name='details'),
+    path('get_product',get_product,name='get_product'),
+    path('get_category',get_category,name='get_category')
 ]
 
 if settings.DEBUG:

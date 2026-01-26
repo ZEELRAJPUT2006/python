@@ -70,7 +70,7 @@
 # new_list = list(set(li))
 # print(new_list)
 
-n = [1,2,3,4,5,6]
-print('largest number is:',max(n))
+# n = [1,2,3,4,5,6]
+# print('largest number is:',max(n))
 
 

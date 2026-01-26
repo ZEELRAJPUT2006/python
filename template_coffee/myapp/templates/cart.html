@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KOPPEE | Coffee Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f5f2;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Header */
+        .cart-title {
+            letter-spacing: 4px;
+            color: #c59d5f;
+        }
+
+        /* Cart Card */
+        .cart-item {
+            border-radius: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .cart-item:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Image */
+        .img-wrapper {
+            width: 90px;
+            height: 90px;
+            margin: auto;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(111, 78, 55, 0.4);
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .img-wrapper:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Product Name */
+        .product-name {
+            font-weight: 700;
+            color: #6f4e37;
+        }
+
+        /* Quantity Buttons */
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            border: 1px solid #6f4e37;
+            background: transparent;
+            color: #6f4e37;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .qty-btn:hover {
+            background: #6f4e37;
+            color: #fff;
+        }
+
+        /* Delete Button */
+        .delete-btn {
+            color: #dc3545;
+            font-size: 18px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            color: #a71d2a;
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        /* Order Summary */
+        .summary-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .checkout-btn {
+            background: #6f4e37;
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        .checkout-btn:hover {
+            background: #5a3d2b;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+
+    <!-- Title -->
+    <div class="text-center mb-5">
+        <h5 class="cart-title text-uppercase">Your Cart</h5>
+        <h1 class="font-weight-bold">KOPPEE ☕ Coffee Cart</h1>
+    </div>
+
+    <div class="row">
+
+        <!-- CART ITEMS -->
+        <div class="col-lg-8">
+
+            {% for c in carts %}
+            <div class="cart-item card mb-3 shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+
+                        <!-- Image -->
+                        <div class="col-md-2 text-center">
+                            <div class="img-wrapper">
+                                <img src="{{ c.Product.image.url }}" alt="{{ c.Product.name }}">
+                            </div>
+                        </div>
+
+                        <!-- Name -->
+                        <div class="col-md-3">
+                            <h6 class="product-name mb-1">{{ c.Product.name }}</h6>
+                            <small class="text-muted">KOPPEE Special</small>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="col-md-2 text-muted">
+                            ₹{{ c.Product.price }}
+                        </div>
+
+                        <!-- Quantity -->
+                        <div class="col-md-3 text-center">
+                            <button class="qty-btn">−</button>
+                            <span class="mx-2 font-weight-bold">{{ c.qty }}</span>
+                            <button class="qty-btn">+</button>
+                        </div>
+
+                        <!-- Subtotal + Delete -->
+                        <div class="col-md-2 d-flex justify-content-end align-items-center">
+                            <span class="font-weight-bold mr-3">
+                                ₹{{ c.total_price }}
+                            </span>
+                            <a href="#" class="delete-btn">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <!-- ORDER SUMMARY -->
+        <div class="col-lg-4">
+            <div class="summary-box shadow">
+                <h5 class="mb-3">Order Summary</h5>
+                <hr>
+
+                <p class="d-flex justify-content-between">
+                    <span>Subtotal</span>
+                    <span>₹{{ subtotal }}</span>
+                </p>
+
+                <p class="d-flex justify-content-between">
+                    <span>Delivery</span>
+                    <span>₹40</span>
+                </p>
+
+                <hr>
+
+                <h5 class="d-flex justify-content-between font-weight-bold">
+                    <span>Total</span>
+                    <span>₹{{ total }}</span>
+                </h5>
+
+                <button class="btn checkout-btn btn-block mt-4">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            if (!confirm('Remove this item from KOPPEE cart? ☕')) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

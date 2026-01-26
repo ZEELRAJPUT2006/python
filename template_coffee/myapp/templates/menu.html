@@ -15,7 +15,7 @@
     </div>
     <!-- Page Header End -->
 
-
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
     <!-- Menu Start -->
     <div class="container-fluid pt-5">
         <div class="container">
@@ -25,7 +25,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <h1 class="mb-5">Hot Coffee</h1>
+                    <!-- <h1 class="mb-5">Hot Coffee</h1>
                     <div class="row align-items-center mb-5">
                         <div class="col-4 col-sm-3">
                             <img class="w-100 rounded-circle mb-3 mb-sm-0" src="static/img/menu-1.jpg" alt="">
@@ -87,36 +87,140 @@
                         <div class="col-8 col-sm-9">
                             <h4>Coffee With Milk</h4>
                             <p class="m-0">Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
+<!-- NORMAL MENU (Django rendered) -->
+<div id="menu-section">
+{% for cat in categories %}
+    <div class="col-lg-6">
+        <h1 class="mb-5">{{ cat.name }}</h1>
 
-                {% for cat in categories %}
-                    <div class="col-lg-6">
-                        <h1 class="mb-5">{{ cat.name }}</h1>
-
-            {% for prod in products %}
+        {% for prod in products %}
+            {% if prod.category.id == cat.id %}
             <div class="row align-items-center mb-5">
-                <div class="col-4 col-sm-3">
-                    <img class="w-100 rounded-circle mb-3 mb-sm-0"
-                        src="media/{{prod.image}}" alt="">
+                <div class="col-4 col-sm-3" id="prodata">
+                    <a href="{% url 'details' %}?pid={{ prod.id }}">
+                        <img class="w-100 rounded-circle"
+                             src="{{ prod.image.url }}" alt="">
+                    </a>
                     <h5 class="menu-price">₹{{ prod.price }}</h5>
                 </div>
+
                 <div class="col-8 col-sm-9">
                     <h4>{{ prod.name }}</h4>
                     <p class="m-0">{{ prod.desc }}</p>
                 </div>
+
+                 <button   onclick="addtocart('{{prod.id}}')">
+                    <i class="fa fa-shopping-cart">Cart</i>
+                 </button>
+
             </div>
-            {% endfor %}
-        </div>
+
+
+            {% endif %}
         {% endfor %}
-
-           
-                
-            </div>
-        </div>
     </div>
-    <!-- Menu Endmedia/{{prod.image}} -->
+{% endfor %}
+</div>
+
+<script>
+    $(document).ready(function(){
+        // get_product()
+        // alert("ok")
+    })
+
+    // function get_product(){
+    //     $.get("get_product",{},function(rt){
+    //         var pro = ""
+    //         rt.products.map(ele => {
+    //             pro += ` <a href="{%url 'details'%}?pid={{prod.id}}">
+    //             <img class="w-100 rounded-circle mb-3 mb-sm-0"
+    //                  src="${ ele.image }" alt="${ ele.image }">
+    //             </a>
+    //             <h5 class="menu-price">₹${ ele.price }</h5>
+    //         </div>
+    //         <div class="col-8 col-sm-9">
+    //             <h4>${ products.ele.name }}</h4>
+    //             <p class="m-0">${ ele.desc }</p>
+    //         </div>
+    //         <a href="#" class="nav-item nav-link" onclick='addtocart(${ele.id})'>
+    //                     <i class="fa fa-shopping-cart"></i>
+    //                 </a>
+    //        </div>`
+
+    //         })
+    //         $("#prodata").html(pro)
+    //     })
+    // }
+
+    // function get_category(){
+    //     $.get("get_category",{},function(rt){
+
+    //         var cats = ""
+    //         rt.get_categories.map(ele=>{
+    //             cats += `<h1 class="mb-5">${ ele.name }</h1>`
+    //         })
+    //         $("#catdata").html(cats)
+    //     })   
+    // }
 
 
+    function serach(q) {
+
+    $.get("/serach", { q } , function (rt) {
+
+        let pro = "";
+
+        rt.products.map(ele => {
+
+            pro += `
+            <div class="row align-items-center mb-4">
+
+                <!-- Image -->
+                <div class="col-md-3 text-center">
+                    <img src="/media/${ele.image}"
+                         class="img-fluid rounded-circle"
+                         style="width:120px;">
+                </div>
+
+                <!-- Content -->
+                <div class="col-md-6">
+                    <h4>${ele.name}</h4>
+                    <p class="text-muted">${ele.desc}</p>
+                </div>
+
+                <!-- Price + Button -->
+                <div class="col-md-3 text-center">
+                    <span class="badge badge-warning p-2 mb-2 d-inline-block">
+                        ₹${ele.price}
+                    </span><br>
+                    <button class="btn btn-warning btn-sm add-to-cart"
+                            data-id="${ele.id}">
+                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+
+            </div>`;
+        });
+
+        $("#prodata").html(pro);
+    });
+}
+
+ 
+    function addtocart(pid){
+            $.get('addtocart/',{pid}, function(rt){
+                if (rt == 'AnonymousUser'){
+                    location.href='login'
+                }
+                else
+                {
+                    alert(rt)
+                }
+                
+            })
+    }
+</script>
 {% endblock %}

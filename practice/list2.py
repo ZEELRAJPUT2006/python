@@ -15,7 +15,7 @@ list2 = list1 + list
 # list.extend(list1)
 # print(list)
 
-print(list2.count("nisha"))
+# print(list2.count("nisha"))
 
 # list3 = list1.copy()
 # print(list3)
@@ -27,7 +27,7 @@ print(list2.count("nisha"))
 # print(len(list1))
 # print(list[:2])
 # print(list[5::2])
-print(list[::-1])
+# print(list[::-1])
 # print(list[:-1])
 # list[2]="apple"
 # print(list)
@@ -51,10 +51,10 @@ list2 = ["java","python"]
 list = ["hello",123,"@"]
 # list1 = list+list2
 # print(list1)
-# list.append("world")
-# list.insert(5,"python")
-# list.extend("java")
-# print(list)
+list.append("world")
+list.insert(5,"python")
+list.extend("java")
+print(list)
 
 # list.clear()
 # del list
